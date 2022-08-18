@@ -9,11 +9,9 @@
                 <div class="card-header">
                     <h4>{{ __('tax List') }}</h4>
                     <div class="card-header-action">
-                        <div class="btn-group">
-                            <a href="{{ route('admin.taxs.create') }}" class="btn btn-primary">
-                                <i class="fas fa-plus"></i> {{ __('Add tax') }}
-                            </a>
-                        </div>
+                        <a href="{{ route('admin.taxs.create') }}" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> {{ __('Add tax') }}
+                        </a>
                     </div>
                 </div>
                 <div class="card-body">

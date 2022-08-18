@@ -27,7 +27,7 @@ class TaxController extends Controller
 
         return response()->json([
             'message' => __("Tax Created Successfully"),
-            'redirect' => route('admin.tax.index')
+            'redirect' => route('admin.taxs.index')
         ]);
     }
 
@@ -53,7 +53,7 @@ class TaxController extends Controller
 
         return response()->json([
             'message' => __("Tax Updated Successfully"),
-            'redirect' => route('admin.tax.index')
+            'redirect' => route('admin.taxs.index')
         ]);
     }
 
