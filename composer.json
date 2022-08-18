@@ -1,0 +1,23 @@
+{
+    "name": "bishwajitcadhikary/tax",
+    "description": "",
+    "authors": [
+        {
+            "name": "Bishwajit Adhikary",
+            "email": "bishwajitcadhikary@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Tax\\": ""
+        }
+    }
+}
