@@ -4,27 +4,27 @@ return [
     'name' => 'Medicine',
     'menus' => [
         [
-            'text' => __('Taxs'),
+            'text' => __('Taxes'),
             'icon' => 'fas fa-hryvnia',
-            'can' => 'taxs-read',
+            'can' => 'taxes-read',
             'order' => 12,
             'submenu' => [
                 [
                     'text' => __('Tax Settings'),
-                    'route' => 'admin.taxs.settings',
-                    'can' => 'taxs-settings-read',
+                    'route' => 'admin.taxes.settings',
+                    'can' => 'taxes-settings-read',
                     'order' => 133
                 ],
                 [
                     'text' => __('Add Income Tax'),
-                    'route' => 'admin.taxs.create',
-                    'can' => 'taxs-create',
+                    'route' => 'admin.taxes.create',
+                    'can' => 'taxes-create',
                     'order' => 134
                 ],
                 [
                     'text' => __('Income Tax List'),
-                    'route' => 'admin.taxs.index',
-                    'can' => 'taxs-read',
+                    'route' => 'admin.taxes.index',
+                    'can' => 'taxes-read',
                     'order' => 135
                 ],
             ]
