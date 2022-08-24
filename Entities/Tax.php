@@ -4,13 +4,14 @@ namespace Modules\Tax\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Core\Helpers\HasAmount;
 
 class Tax extends Model
 {
-    use HasFactory;
+    use HasFactory, HasAmount;
 
-    protected $fillable = [];
-    
+    protected $guarded = ['id'];
+
     protected static function newFactory()
     {
         return \Modules\Tax\Database\factories\TaxFactory::new();

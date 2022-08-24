@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::create('taxes', function (Blueprint $table) {
             $table->id();
-
+            $table->integer('start_amount')->nullable();
+            $table->integer('end_amount')->nullable();
+            $table->double('rate', 2)->nullable();
             $table->timestamps();
         });
     }

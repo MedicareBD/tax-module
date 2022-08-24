@@ -2,7 +2,7 @@
 
 namespace Modules\Tax\DataTables;
 
-use App\Models\Tax;
+use Modules\Tax\Entities\Tax;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -18,7 +18,9 @@ class TaxDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addIndexColumn()
+            ->editColumn('rate', fn($model) => __(":percentage%", ['percentage' => $model->rate]))
             ->editColumn('created_at', fn($model) => format_date($model->created_at))
+            ->editColumn('updated_at', fn($model) => format_date($model->updated_at))
             ->addColumn('action', 'tax::action')
             ->setRowId('id');
     }
@@ -31,7 +33,7 @@ class TaxDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('customer-datatable-table')
+            ->setTableId('tax-datatable-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             ->dom(config('custom.table.dom'))
@@ -54,8 +56,11 @@ class TaxDataTable extends DataTable
                 ->exportable(false)
                 ->orderable(false)
                 ->title('#'),
-            //Column::make('name')->title(__("Name")),
+            Column::make('start_amount')->title(__("Start Amount")),
+            Column::make('end_amount')->title(__("End Amount")),
+            Column::make('rate')->title(__("Rate")),
             Column::make('created_at')->title(__("Created At")),
+            Column::make('updated_at')->title(__("Updated At")),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
@@ -68,6 +73,6 @@ class TaxDataTable extends DataTable
 
     protected function filename(): string
     {
-        return 'Taxs_' . date('YmdHis');
+        return 'Taxes_' . date('YmdHis');
     }
 }

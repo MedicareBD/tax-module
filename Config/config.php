@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'name' => 'Medicine',
+    'name' => 'Tax',
     'menus' => [
         [
             'text' => __('Taxes'),
