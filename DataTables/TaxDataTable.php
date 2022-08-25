@@ -2,14 +2,11 @@
 
 namespace Modules\Tax\DataTables;
 
-use Modules\Tax\Entities\Tax;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Modules\Tax\Entities\Tax;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
-use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class TaxDataTable extends DataTable
@@ -18,9 +15,9 @@ class TaxDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addIndexColumn()
-            ->editColumn('rate', fn($model) => __(":percentage%", ['percentage' => $model->rate]))
-            ->editColumn('created_at', fn($model) => format_date($model->created_at))
-            ->editColumn('updated_at', fn($model) => format_date($model->updated_at))
+            ->editColumn('rate', fn ($model) => __(':percentage%', ['percentage' => $model->rate]))
+            ->editColumn('created_at', fn ($model) => format_date($model->created_at))
+            ->editColumn('updated_at', fn ($model) => format_date($model->updated_at))
             ->addColumn('action', 'tax::action')
             ->setRowId('id');
     }
@@ -56,11 +53,11 @@ class TaxDataTable extends DataTable
                 ->exportable(false)
                 ->orderable(false)
                 ->title('#'),
-            Column::make('start_amount')->title(__("Start Amount")),
-            Column::make('end_amount')->title(__("End Amount")),
-            Column::make('rate')->title(__("Rate")),
-            Column::make('created_at')->title(__("Created At")),
-            Column::make('updated_at')->title(__("Updated At")),
+            Column::make('start_amount')->title(__('Start Amount')),
+            Column::make('end_amount')->title(__('End Amount')),
+            Column::make('rate')->title(__('Rate')),
+            Column::make('created_at')->title(__('Created At')),
+            Column::make('updated_at')->title(__('Updated At')),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
@@ -73,6 +70,6 @@ class TaxDataTable extends DataTable
 
     protected function filename(): string
     {
-        return 'Taxes_' . date('YmdHis');
+        return 'Taxes_'.date('YmdHis');
     }
 }

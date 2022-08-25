@@ -13,21 +13,21 @@ return [
                     'text' => __('Tax Settings'),
                     'route' => 'admin.taxes.settings',
                     'can' => 'taxes-settings-read',
-                    'order' => 133
+                    'order' => 133,
                 ],
                 [
                     'text' => __('Add Income Tax'),
                     'route' => 'admin.taxes.create',
                     'can' => 'taxes-create',
-                    'order' => 134
+                    'order' => 134,
                 ],
                 [
                     'text' => __('Income Tax List'),
                     'route' => 'admin.taxes.index',
                     'can' => 'taxes-read',
-                    'order' => 135
+                    'order' => 135,
                 ],
-            ]
-        ]
-    ]
+            ],
+        ],
+    ],
 ];

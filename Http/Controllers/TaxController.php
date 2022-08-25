@@ -23,8 +23,8 @@ class TaxController extends Controller
     {
         $request->validate([
             'taxes' => ['required', 'array', 'min:1'],
-            'taxes.*.start_amount' => ['required', 'numeric','min:1'],
-            'taxes.*.end_amount' => ['required', 'numeric','gte:taxes.*.start_amount'],
+            'taxes.*.start_amount' => ['required', 'numeric', 'min:1'],
+            'taxes.*.end_amount' => ['required', 'numeric', 'gte:taxes.*.start_amount'],
             'taxes.*.rate' => ['required', 'numeric'],
         ], [
             'taxes.*.start_amount.required' => __('validation.required', ['attribute' => __('start amount')]),
@@ -46,8 +46,8 @@ class TaxController extends Controller
         }
 
         return response()->json([
-            'message' => __("Tax Created Successfully"),
-            'redirect' => route('admin.taxes.index')
+            'message' => __('Tax Created Successfully'),
+            'redirect' => route('admin.taxes.index'),
         ]);
     }
 
@@ -64,8 +64,8 @@ class TaxController extends Controller
     public function update(Request $request, Tax $tax)
     {
         $validated = $request->validate([
-            'start_amount' => ['required', 'numeric','min:1'],
-            'end_amount' => ['required', 'numeric','gte:start_amount'],
+            'start_amount' => ['required', 'numeric', 'min:1'],
+            'end_amount' => ['required', 'numeric', 'gte:start_amount'],
             'rate' => ['required', 'numeric'],
         ]);
 
@@ -76,8 +76,8 @@ class TaxController extends Controller
         ]);
 
         return response()->json([
-            'message' => __("Tax Updated Successfully"),
-            'redirect' => route('admin.taxes.index')
+            'message' => __('Tax Updated Successfully'),
+            'redirect' => route('admin.taxes.index'),
         ]);
     }
 
@@ -86,7 +86,7 @@ class TaxController extends Controller
         $tax->delete();
 
         return response()->json([
-            'message' => __("Tax Deleted Successfully"),
+            'message' => __('Tax Deleted Successfully'),
         ]);
     }
 }
