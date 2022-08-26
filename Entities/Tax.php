@@ -11,9 +11,4 @@ class Tax extends Model
     use HasFactory, HasAmount;
 
     protected $guarded = ['id'];
-
-    protected static function newFactory()
-    {
-        return \Modules\Tax\Database\factories\TaxFactory::new();
-    }
 }
